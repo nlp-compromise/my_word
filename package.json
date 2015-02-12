@@ -1,0 +1,24 @@
+{
+  "author": "Spencer Kelly <spencerwater@gmail.com> (http://spencermounta.in)",
+  "name": "aho_corasick",
+  "description": "trie-based string matching in javascript",
+  "version": "0.0.1",
+  "main": "index.js",
+  "engines": [
+      "node >= 0.3.6"
+  ],
+  "dependencies": {},
+  "contributors":[{
+    "name":"Tom Booth",
+    "email":"tombooth@gmail.com"
+  }],
+  "keywords": [],
+  "devDependencies": {
+     "nodeunit": "*"
+  },
+  "bin": {},
+  "license": "MIT",
+  "scripts": {
+    "test": "nodeunit tests"
+  }
+}
