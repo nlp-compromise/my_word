@@ -15,7 +15,8 @@ $ npm install my_word
 
 #Usage
 ```javascript
-var my=new require('my_word')
+var my_word=require('my_word')
+var my= new my_word()
 my.add("cameron diaz")
 my.add("cameron")
 my.add("david cameron")
