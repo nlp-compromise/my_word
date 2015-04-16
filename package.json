@@ -1,9 +1,9 @@
 {
-  "author": "Spencer Kelly <spencerwater@gmail.com> (http://spencermounta.in)",
-  "name": "aho_corasick",
-  "description": "trie-based string matching in javascript",
+  "author": "Spencer Kelly <spencermountain@gmail.com> (http://spencermounta.in)",
+  "name": "my_word",
+  "description": "fast word-find algorithm in javascript",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "./my_word.js",
   "engines": [
       "node >= 0.3.6"
   ],
@@ -19,6 +19,6 @@
   "bin": {},
   "license": "MIT",
   "scripts": {
-    "test": "nodeunit tests"
+    "test": "nodeunit test.js"
   }
 }
