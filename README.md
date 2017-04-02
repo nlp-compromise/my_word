@@ -1,15 +1,27 @@
-**my_word** is a small text-indexing library, to support pretty-efficient lookup of words in a longer text.
-<a href="https://npmjs.org/package/my_word">
-<img src="https://img.shields.io/npm/v/my_word.svg?style=flat-square" />
-</a>
+<div align="center">
+  <img src="https://cloud.githubusercontent.com/assets/399657/23590290/ede73772-01aa-11e7-8915-181ef21027bc.png" />
+  <div>a small text-indexing library</div>
+  <a href="https://npmjs.org/package/my_word">
+    <img src="https://img.shields.io/npm/v/my_word.svg?style=flat-square" />
+  </a>
+  <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
+    <img src="https://img.shields.io/badge/stability-stable-green.svg?style=flat-square" />
+  </a>
+</div>
 
-this is for goofballs:
+<div align="center">
+  <code>npm i my_word</code>
+
+  this is for goofballs:
+</div>
 ```js
 myCompleteMemoirs.indexOf('johnny carson') === -1
 ```
 because it loops through every character in the text.
 
-Worse, it trips on every `j`, `jo`, etc - and must overscan after each partial match.
+<div align="center">
+  Worse, it trips on every `j`, `jo`, etc - and must overscan after each partial match.
+</div>
 
 even worse,
 * it will match `"fjohnny carsonb"`
@@ -55,5 +67,14 @@ console.log(index.has('we saw david diaz'))
 console.log(index.has('cameron'))
 // true
 ````
+
+```html
+<script src="https://unpkg.com/my_word@latest/builds/my_word.min.js"></script>
+<script>
+  var trie=window.my_word('so this is a story all about how..');
+  trie.has('a story');
+  //true
+</script>
+```
 
 MIT
