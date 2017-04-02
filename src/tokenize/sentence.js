@@ -9,20 +9,19 @@ const abbrev_reg = new RegExp('\\b(' + abbreviations.join('|') + ')[.!?] ?$', 'i
 const acronym_reg = new RegExp('[ |\.][A-Z]\.?( *)?$', 'i');
 const elipses_reg = new RegExp('\\.\\.+( +)?$');
 
-//just start somewhere:
+//start with a regex:
 const naiive_split = function (text) {
+  let all = [];
   //first, split by newline
-  let splits = text.split(/(\n+)/);
-  //split by period, question-mark, and exclamation-mark
-  splits = splits.map(function (str) {
-    return str.split(/(\S.+?[.!?])(?=\s+|$)/g);
-  });
-  //flatten
-  let result = [];
-  for(let i = 0; i < splits.length; i++) {
-    result.push(splits[i]);
+  let lines = text.split(/(\n+)/);
+  for(let i = 0; i < lines.length; i++) {
+    //split by period, question-mark, and exclamation-mark
+    let arr = lines[i].split(/(\S.+?[.!?])(?=\s+|$)/g);
+    for(let o = 0; o < arr.length; o++) {
+      all.push(arr[o]);
+    }
   }
-  return result;
+  return all;
 };
 
 const sentence_parser = function (text) {

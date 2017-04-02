@@ -42,15 +42,15 @@ in comparison to other prefix/suffix tries (like [efrt](https://github.com/nlp-c
 This means matches will not extend over sentence-boundaries, and it won't get tripped-up by punctuation, whitespace, or prefix-matches.
 
 ## How-the?
-the [Aho-Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_string_matching_algorithm) is a fancy ~pants~ way to look-up a string efficiently in text. If you have a bag of words, and want to know whether they're found in a text, you could loop through and do a ```str.match(/\bword\b/)``` for each one - but that's equally-slow for every lookup (O(n)).
+the [Aho-Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_string_matching_algorithm) is a fancy ~pants~ way to look-up a string efficiently in text.
 
-...or you could put all the words in an object:
+If you have a bag of words, and want to know whether they're found in a text, you could loop through and do a ```str.match(/\bword\b/)``` for each one - but that's equally-slow for every lookup (O(n)).
 
-but lord-help-you if you want to lookup a multiple-word match.
+...or you could put all the words in an object, but *lord-help-you* when you want to lookup a multiple-word input.
 
-Cooler would be to store the words in your text in a [stick-and-arrow diagram](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm#/media/File:Ahocorasick.svg) kinda-way.
+Faster would be to store the sequences of words in a [stick-and-arrow diagram](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm#/media/File:Ahocorasick.svg) kinda-way.
 
-This way, any-length of text can be searched-through in immediately O(1), and no word is stored twice.
+This way, any-length of text can be searched-for immediately O(1), and no word is stored twice.
 
 This algorithm makes a graph of words, instead of characters, and makes certain assumptions about language, and that you are looking for full words in natural language text.
 
