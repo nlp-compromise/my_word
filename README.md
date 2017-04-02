@@ -11,8 +11,9 @@
 
 <div align="center">
   <code>npm i my_word</code>
-  this is for goofballs:
 </div>
+
+this is for goofballs:
 
 ```js
 myCompleteMemoirs.indexOf('johnny carson') === -1
@@ -20,17 +21,19 @@ myCompleteMemoirs.indexOf('johnny carson') === -1
 because it loops through every character in the text.
 
 <div align="center">
-  Worse, it trips on every `j`, `jo`, etc - and must overscan after each partial match.
+  Worse, it trips on every <b>j</b>, <b>jo</b>, etc - and must overscan after each partial match.
 </div>
 
-even worse,
+even worse!
 * it will match `"fjohnny carsonb"`
 * it will miss `"johnny-carson"`
 etc.
 
 ```js
 let index = my_word(myCompleteMemoirs)
-// :boom: fast :boom:
+//takes a few milliseconds..
+
+// 💥 fast 💥
 index.has('johnny carson')
 //true
 ```
