@@ -50,7 +50,7 @@ If you have a bag of words, and want to know whether they're found in a text, yo
 
 Faster would be to store the sequences of words in a [stick-and-arrow diagram](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm#/media/File:Ahocorasick.svg) kinda-way.
 
-This way, any-length of text can be searched-for immediately O(1), and no word is stored twice.
+This way, any-length of text can be searched-for immediately O(1), and no sequence is stored twice.
 
 This algorithm makes a graph of words, instead of characters, and makes certain assumptions about language, and that you are looking for full words in natural language text.
 

@@ -1,6 +1,7 @@
 'use strict';
 const Node = require('./node');
 const AhoC = require('./aho');
+const tokenize = require('./tokenize');
 
 //terms to add to our trie
 const addSequence = function(arr, root) {
@@ -20,16 +21,19 @@ const addSequence = function(arr, root) {
 
 //
 const buildUp = (str) => {
-  let words = str.split(' ');
+  let sentences = tokenize(str);
   let root = new Node('');
 
-  for (let i = 0; i < words.length; i++) {
-    let max = 3;
-    if (words.length < max + i) {
-      max = words.length - i;
-    }
-    for (let len = 1; len <= max; len++) {
-      addSequence(words.slice(i, i + len), root);
+  for(let i = 0; i < sentences.length; i++) {
+    let words = sentences[i];
+    for (let o = 0; o < words.length; o++) {
+      let max = 3;
+      if (words.length < max + o) {
+        max = words.length - o;
+      }
+      for (let len = 1; len <= max; len++) {
+        addSequence(words.slice(o, o + len), root);
+      }
     }
   }
 
