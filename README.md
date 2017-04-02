@@ -11,9 +11,9 @@
 
 <div align="center">
   <code>npm i my_word</code>
-
   this is for goofballs:
 </div>
+
 ```js
 myCompleteMemoirs.indexOf('johnny carson') === -1
 ```
