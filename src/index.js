@@ -1,37 +1,35 @@
 'use strict';
-const tokenize = require('./tokenize');
 const Node = require('./node');
 const AhoC = require('./aho');
 
 //terms to add to our trie
-const addSequence = function(arr, node, root) {
+const addSequence = function(arr, root) {
+  let node = root;
   for (let i = 0; i < arr.length; i++) {
     let word = arr[i];
     //look for an existing node
-    let nextNode = root.next[word];
+    let nextNode = node.next[word];
     if (nextNode === undefined) {
-      //make a new node
-      console.log('-new-', word);
-      nextNode = new Node(word);
+      nextNode = new Node(word); //make a new node
     }
     node.next[word] = nextNode;
-    nextNode = node;
+    // nextNode = node;
+    node = nextNode;
   }
 };
 
 //
 const buildUp = (str) => {
+  let words = str.split(' ');
   let root = new Node('');
-  let sentences = tokenize(str);
 
-  for (let i = 0; i < sentences.length; i++) {
-    let words = sentences[i];
+  for (let i = 0; i < words.length; i++) {
     let max = 3;
     if (words.length < max + i) {
       max = words.length - i;
     }
     for (let len = 1; len <= max; len++) {
-      addSequence(words.slice(i, i + len), root, root);
+      addSequence(words.slice(i, i + len), root);
     }
   }
 
