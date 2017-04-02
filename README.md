@@ -13,7 +13,7 @@
   <code>npm i my_word</code>
 </div>
 
-this is for *complete goofballs*:
+this is for **complete goofballs**:
 
 ```js
 myCompleteMemoirs.indexOf('johnny carson') === -1
@@ -38,11 +38,11 @@ index.has('johnny carson')
 
 by using **my_word**, not only are lookups faster, but filesize + memory-use is much smaller.
 
-in comparison to other prefix/suffix tries (like [efrt](https://github.com/nlp-compromise/efrt)!) **my_word** indexes by word, and sentence, instead of by character.
-This means matches will not extend over sentence-boundaries, and that it won't get tripped-up by punctuation or whitespace.
+in comparison to other prefix/suffix tries (like [efrt](https://github.com/nlp-compromise/efrt)!) **my_word** indexes by *word and sentence*, instead of by character.
+This means matches will not extend over sentence-boundaries, and that it won't get tripped-up by punctuation, whitespace, or word-prefixes.
 
 ## How-the?
-the [Aho-Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_string_matching_algorithm) is a trie-based method to look-up a list of words efficiently in text. If you have a bag of words, and want to know if they're found in a sentence, you could loop through and do ```str.match(/\bword\b/)``` but that's a regex for each one, and is slower for every word (O(n)).
+the [Aho-Corasick algorithm](https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_string_matching_algorithm) is a trie-based method to look-up a list of words efficiently in text. If you have a bag of words, and want to know if they're found in a text, you could loop through and do ```str.match(/\bword\b/)``` but that's a regex for each one, and is slower for every word (O(n)).
 
 Cooler would be to generate a *trie* from the words in your text.
 
@@ -72,8 +72,8 @@ console.log(index.has('cameron'))
 ```html
 <script src="https://unpkg.com/my_word@latest/builds/my_word.min.js"></script>
 <script>
-  var trie=window.my_word('so this is a story all about how..');
-  trie.has('a story');
+  var trie = window.my_word('I am the very model of a modern Major-General');
+  trie.has('a modern major');
   //true
 </script>
 ```
