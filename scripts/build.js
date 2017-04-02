@@ -14,14 +14,13 @@ var child = exec(eslint + ' -c .eslintrc --color ./src/**', {
   async: true
 });
 child.stdout.on('error', function() {
-  //(exit if linter finds errors)
-  process.exit();
+  process.exit(); //(exit if linter finds errors)
 });
 
 //final build locations
-var banner = '/* @smallwins/remark v' + pkg.version + '\n  \n*/\n';
-var uncompressed = './builds/remark.js';
-var compressed = './builds/remark.min.js';
+var banner = '/* my_word v' + pkg.version + '\n  \n*/\n';
+var uncompressed = './builds/my_word.js';
+var compressed = './builds/my_word.min.js';
 
 //cleanup. remove old builds
 exec('rm -rf ./builds && mkdir builds');
@@ -31,7 +30,7 @@ echo(banner).to(uncompressed);
 echo(banner).to(compressed);
 
 //browserify + derequire
-var cmd = browserify + ' ./src/index.js --standalone remark';
+var cmd = browserify + ' ./src/index.js --standalone my_word';
 cmd += ' -t [ babelify --presets [ es2015 stage-2 ] ]';
 cmd += ' | ' + derequire;
 cmd += ' >> ' + uncompressed;

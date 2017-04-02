@@ -2,14 +2,14 @@
   "author": "Spencer Kelly <spencermountain@gmail.com> (http://spencermounta.in)",
   "name": "my_word",
   "description": "fast word-find algorithm in javascript",
-  "version": "0.0.1",
-  "main": "./my_word.js",
+  "version": "0.0.2",
+  "main": "./builds/my_word.js",
   "engines": [
       "node >= 0.3.6"
   ],
   "scripts": {
     "test": "node ./scripts/test.js",
-    "build": "node ./scripts/build/index.js",
+    "build": "node ./scripts/build.js",
     "watch": "node ./scripts/watch.js",
     "filesize": "node ./scripts/filesize.js",
     "coverage": "node ./scripts/coverage.js"
