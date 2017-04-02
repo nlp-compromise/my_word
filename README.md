@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/npm/v/my_word.svg?style=flat-square" />
   </a>
   <a href="https://nodejs.org/api/documentation.html#documentation_stability_index">
-    <img src="https://img.shields.io/badge/stability-stable-green.svg?style=flat-square" />
+    <img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square" />
   </a>
 </div>
 
@@ -13,22 +13,20 @@
   <code>npm i my_word</code>
 </div>
 
-this is for goofballs:
+this is for *complete goofballs*:
 
 ```js
 myCompleteMemoirs.indexOf('johnny carson') === -1
 ```
 because it loops through every character in the text.
 
-<div align="center">
-  Worse, it trips on every <b>j</b>, <b>jo</b>, etc - and must overscan after each partial match.
-</div>
-
 even worse!
-* it will match `"fjohnny carsonb"`
-* it will miss `"johnny-carson"`
+* it will match `fjohnny carsonb`
+* it will miss `johnny-carson`
+* it will over-scan on `jjohnny cartoon`
 etc.
 
+## All your word are belong:
 ```js
 let index = my_word(myCompleteMemoirs)
 //takes a few milliseconds..
